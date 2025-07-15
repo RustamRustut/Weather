@@ -13,6 +13,7 @@
 
 ```bash
 git clone https://github.com/RustamRustut/Weather.git
+cd Weather/
 npm i
 npm run dev
 ```
