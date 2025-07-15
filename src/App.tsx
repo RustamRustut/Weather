@@ -3,7 +3,7 @@ import "./styles.css";
 import { useState } from "react";
 import { TimeRangeSelector } from "./components/TimeRangeSelector";
 import { WeatherChart } from "./components/WeatherChart";
-import { useWeatherData } from "./hooks/useWeatherData"; // подключаем хук
+import { useWeatherData } from "./hooks/useWeatherData"; 
 
 const cities = [
   { name: "Амстердам", latitude: 52.3676, longitude: 4.9041 },
