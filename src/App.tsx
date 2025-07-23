@@ -1,9 +1,7 @@
-/* eslint-disable react-hooks/rules-of-hooks */
+import { CityWeather } from "./components/CityWeather";
+import { TimeRangeSelector } from "./components/TimeRangeSelector";
 import "./styles.css";
 import { useState } from "react";
-import { TimeRangeSelector } from "./components/TimeRangeSelector";
-import { WeatherChart } from "./components/WeatherChart";
-import { useWeatherData } from "./hooks/useWeatherData"; 
 
 const cities = [
   { name: "Амстердам", latitude: 52.3676, longitude: 4.9041 },
@@ -20,23 +18,15 @@ export function App() {
         <TimeRangeSelector value={hours} onChange={setHours} />
       </div>
       <div className="container">
-        {cities.map((city) => {
-          const { data, error, loading } = useWeatherData(
-            city.latitude,
-            city.longitude,
-            hours
-          );
-
-          return (
-            <WeatherChart
-              key={city.name}
-              title={city.name}
-              data={data}
-              error={error}
-              loading={loading}
-            />
-          );
-        })}
+        {cities.map((city) => (
+          <CityWeather
+            key={city.name}
+            name={city.name}
+            latitude={city.latitude}
+            longitude={city.longitude}
+            hours={hours}
+          />
+        ))}
       </div>
     </div>
   );
